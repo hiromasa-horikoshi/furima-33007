@@ -9,7 +9,6 @@ class Status < ActiveHash::Base
     { id: 7, name: '全体的に状態が悪い' }
   ]
   
-    include ActiveHash::Associations
-    belongs_to :item
-  end
+  include ActiveHash::Associations
+  belongs_to :item
 end
