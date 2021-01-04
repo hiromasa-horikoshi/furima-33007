@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
 
+  #商品一覧表示機能の実装の際にindexアクションに.order("created_at DESC")をつける
   def index
-    #@items = Item.includes(:user).order("created_at DESC")
+    @items = Item.new
   end
-
+  
   def new
     if user_signed_in?
       @item = Item.new
