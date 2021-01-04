@@ -32,7 +32,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'category_id = 1では保存できないこと' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
@@ -44,7 +44,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'status_id = 1では保存できないこと' do
-        @item.status_id = '1'
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
@@ -56,7 +56,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'burden_id = 1では保存できないこと' do
-        @item.burden_id = '1'
+        @item.burden_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Burden must be other than 1")
       end
@@ -68,7 +68,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'prefecture_id = 1では保存できないこと' do
-        @item.prefecture_id = '1'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'delivery_day_id = 1では保存できないこと' do
-        @item.delivery_day_id = '1'
+        @item.delivery_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
       end
@@ -92,13 +92,13 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceが¥300より小さい場合無効な状態であること' do
-        @item.price = '299'
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
 
       it 'priceの範囲が¥9,999,999より大きい場合無効な状態であること' do
-        @item.price = '10000000'
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than 10000000")
       end
