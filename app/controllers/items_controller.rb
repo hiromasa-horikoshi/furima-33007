@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
 
   #商品一覧表示機能の実装の際にindexアクションに.order("created_at DESC")をつける
   def index
