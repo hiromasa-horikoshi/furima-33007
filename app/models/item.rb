@@ -15,11 +15,13 @@ class Item < ApplicationRecord
       validates :explanation
       validates :price,            numericality: { greater_than_or_equal_to: 300, less_than: 10000000 }, format: {with: /\A[0-9]+\z/ }
       validates :user
-      validates :category_id,      numericality: { other_than: 1 } 
-      validates :status_id,        numericality: { other_than: 1 } 
-      validates :burden_id,        numericality: { other_than: 1 } 
-      validates :prefecture_id,    numericality: { other_than: 1 } 
-      validates :delivery_day_id,  numericality: { other_than: 1 } 
       validates :image
+      with_options numericality: { other_than: 1 }  do
+        validates :category_id 
+        validates :status_id
+        validates :burden_id
+        validates :prefecture_id
+        validates :delivery_day_id
+      end
     end
   end
