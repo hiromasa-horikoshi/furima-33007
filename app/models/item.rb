@@ -14,7 +14,7 @@ class Item < ApplicationRecord
       validates :name
       validates :explanation
       validates :price,            numericality: { greater_than_or_equal_to: 300, less_than: 10000000 }, format: {with: /\A[0-9]+\z/ }
-      validates :user
+      validates :user_id
       validates :image
       with_options numericality: { other_than: 1 }  do
         validates :category_id 

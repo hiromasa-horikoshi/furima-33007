@@ -1,10 +1,8 @@
 class Order < ApplicationRecord
+  attr_accessor :token
+  
   belongs_to :user
-  belongs_to :item
+  belongs_to :item,   dependent: :destroy
   has_one    :address
 
-  with_options presence: true do
-    validates :user
-    validates :item
-  end
 end
