@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe AddressOrder, type: :model do
   before do
-    @address_order = FactoryBot.build(:address_order)
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    sleep 1
+    @address_order = FactoryBot.build(:address_order,user_id: @user.id, item_id: @item.id)
   end
 
   describe '購入' do

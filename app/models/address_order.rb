@@ -13,7 +13,6 @@ class AddressOrder
     validates :item_id
     validates :token
   end
-  validate :building_number
 
   def save
     # orderの情報を保存

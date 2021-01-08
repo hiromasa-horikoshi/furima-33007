@@ -6,7 +6,5 @@ FactoryBot.define do
     city { '横浜市緑区' }
     house_number { '青山1-1-1' }
     phone_number { Faker::Number.number(digits: 11) }
-    user_id { Faker::Number.between(from: 1, to: 1000) }
-    item_id { Faker::Number.between(from: 1, to: 1000) }
   end
 end 
