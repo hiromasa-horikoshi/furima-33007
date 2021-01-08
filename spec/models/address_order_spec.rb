@@ -10,7 +10,7 @@ RSpec.describe AddressOrder, type: :model do
 
   describe '購入' do
     context '保存ができる時' do
-      it 'postal_codeとprefecture_idとcityとhouse_numberとphone_numberとuser_idとitem_idとtokenが存在していれば保存できること' do
+      it '全ての値が正常であれば保存できること' do
         expect(@address_order).to be_valid
       end
 

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: :index
-  before_action :set_action, onlu: [:index, :create]
+  before_action :set_action, only: [:index, :create]
 
   def index
     @address_order = AddressOrder.new
