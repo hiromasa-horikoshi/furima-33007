@@ -13,6 +13,12 @@ RSpec.describe AddressOrder, type: :model do
       it 'postal_codeとprefecture_idとcityとhouse_numberとphone_numberとuser_idとitem_idとtokenが存在していれば保存できること' do
         expect(@address_order).to be_valid
       end
+
+      it 'building_numberは空でも保存できること' do
+        @address_order.building_number = nil
+        @address_order.valid?
+        expect(@address_order).to be_valid
+      end
     end
 
     context '保存ができない時' do
@@ -65,13 +71,19 @@ RSpec.describe AddressOrder, type: :model do
       end
 
       it 'phone_numberが12以上の場合無効な状態であること' do
-        @address_order.phone_number = 12
+        @address_order.phone_number = 111111111111
         @address_order.valid?
         expect(@address_order.errors.full_messages).to include("Phone number is invalid")
       end
 
       it 'phone_numberにハイフンがある場合無効な状態であること' do
         @address_order.phone_number = '090-1234-5678'
+        @address_order.valid?
+        expect(@address_order.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it 'phone_numberが英数混合の場合無効な状態であること' do
+        @address_order.phone_number = 'aaaaa11111'
         @address_order.valid?
         expect(@address_order.errors.full_messages).to include("Phone number is invalid")
       end
